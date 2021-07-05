@@ -3,19 +3,21 @@ import operator
 import subprocess
 import os
 
+author = "John Smith"
+conlang = "My Conlang"
+documentCreation = "Nov 2021"
+documentUpdate = "Dec 2021"
+
+conlangFont = "Broadway"
+extraLetters = ["p'", "t'", "k'", "ng"]
+inputFilename = 'My_Conlang_dictionary.csv'
+outputFilename = conlang.replace(" ", "_")+'_dictionary.tex'
+
 f_old_char = ""
 f_cur_char = ""
 s_old_char = ""
 s_cur_char = ""
 index_letter = ""
-
-inputFilename = 'RQR-shouldgood.csv'
-outputFilename = 'RQR-Output.tex'
-extraLetters = ["p'", "t'", "k'", "ng"]
-author = "Name"
-documentCreation = "Nov 2021"
-documentUpdate = "Dec 2021"
-conlang = "Oppie"
 
 startOfList = True
 with open(inputFilename, 'r') as f:
@@ -73,8 +75,8 @@ with open(outputFilename, 'a') as myFile:
     myFile.write(
         '\\usepackage[top=2.5cm,bottom=2.5cm,left=2.2cm,right=2.2cm,columnsep=22pt]{geometry}\n')
     myFile.write(
-        '\\usepackage{fontspec}\n\\setmainfont{Charis SIL}\n\\newfontfamily\myfont[]{Broadway}\n')
-    myFile.write('\\usepackage{microtype} % Improves spacing\n')
+        '\\usepackage{fontspec}\n\\setmainfont{Charis SIL}\n\\newfontfamily\myfont[]{'+conlangFont+'}\n')
+    myFile.write('%\\usepackage{microtype} % Improves spacing\n')
     myFile.write(
         '\\usepackage[bf,sf]{titlesec} % Required for modifying section titles - bold, sans-serif, centered\n')
     myFile.write(
@@ -84,6 +86,8 @@ with open(outputFilename, 'a') as myFile:
     myFile.write(
         '\\renewcommand{\headrulewidth}{1.4pt} % Rule under the header\n')
     myFile.write(
+        '\\setlength{\headheight}{14.5pt}\n')
+    myFile.write(
         '\\fancyfoot[C]{\\textsf{\\thepage\\ }} % Bottom center footer\n\n')
     myFile.write(
         '\\usepackage{multicol} % Required for splitting text into multiple columns\n')
@@ -91,9 +95,9 @@ with open(outputFilename, 'a') as myFile:
     myFile.write('\\usepackage{xifthen} % provides \isempty test\n\n')
 
     myFile.write(
-        '\\newcommand{\entry}[4]{\\textbf{#1}\\markboth{#1}{#1}\\ \\textit{{#2}}\\ {#3}\\\n')
+        '\\newcommand{\\entry}[4]{\\textbf{#1}\\markboth{#1}{#1}\\ \\textit{{#2}}\\ {#3}\\\n')
     myFile.write('\\ifthenelse{\\isempty{#4}}\n')
-    myFile.write('{#4}               % if no title option given\n')
+    myFile.write('  {#4}  % if no title option given\n')
     myFile.write('{{#4} }}\n\n')
 
     myFile.write('\\begin{document}\n')

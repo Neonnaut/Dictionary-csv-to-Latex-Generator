@@ -1,0 +1,518 @@
+\documentclass[12pt,a4paper,twoside]{article}
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.2cm,right=2.2cm,columnsep=22pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{Charis SIL}
+\newfontfamily\myfont[]{Broadway}
+%\usepackage{microtype} % Improves spacing
+\usepackage[bf,sf]{titlesec} % Required for modifying section titles - bold, sans-serif, centered
+\usepackage{fancyhdr} % Required for modifying headers and footers
+\fancyhead[L]{\textsf{\rightmark}} % Top left header
+\fancyhead[R]{\textsf{\leftmark}} % Top right header
+\renewcommand{\headrulewidth}{1.4pt} % Rule under the header
+\setlength{\headheight}{14.5pt}
+\fancyfoot[C]{\textsf{\thepage\ }} % Bottom center footer
+
+\usepackage{multicol} % Required for splitting text into multiple columns
+\usepackage{ifthen} % provides \ifthenelse test
+\usepackage{xifthen} % provides \isempty test
+
+\newcommand{\entry}[4]{\textbf{#1}\markboth{#1}{#1}\ \textit{{#2}}\ {#3}\
+\ifthenelse{\isempty{#4}}
+  {#4}  % if no title option given
+{{#4} }}
+
+\begin{document}
+\title{My Conlang}
+\author{John Smith}
+\date{Dec 2021}
+\begin{titlepage}
+\begin{center}
+\vspace{10mm}
+A description of the constructed language... \\
+\vspace{40mm}
+\textnormal{ \LARGE{\myfont {My Conlang}\\}}
+\vspace{10mm}
+\fontsize{10mm}{7mm}\selectfont \textup{My Conlang}\\
+\end{center}
+\vspace{25mm}
+\centering{
+\textnormal{\large{\bf Author:\\}}
+{\large John Smith\\ }
+\vspace{8mm}
+\textnormal{\large{\bf Date:\\}}
+{\large Started: Nov 2021 \\ Last modified: Dec 2021\\ }
+\hfill
+}
+\end{titlepage}
+\tableofcontents
+
+\clearpage
+\thispagestyle{empty}
+\section{Lexicon}
+This is the dictionary section.
+\clearpage
+\pagestyle{fancy} % Use the custom headers and footers throughout the document
+\parindent=0em
+\leftskip 0.1in
+\parindent -0.1in
+
+\section*{'}%--------- SECTION '
+\begin{multicols}{2}
+
+\entry{'ad}{ˈʔad}{ptc}{lad}{Hounorific used for young males.}
+
+\entry{'ad}{ˈʔad}{ptc}{lad}{Hounorific used for young males.}
+
+\entry{'albuwe }{ˈʔalbuwɛ}{n}{face}{}
+
+\entry{'antix }{ˈʔantiʕ}{adv}{over there}{}
+
+\entry{'um}{ˈʔum}{p}{we}{}
+
+\entry{'ërud}{ˈʔɜrud}{adj}{black}{}
+
+\end{multicols}
+%\newpage
+\section*{A}%--------- SECTION A
+\begin{multicols}{2}
+
+\entry{a4ragit'a}{aˈragitʼa}{n}{star}{}
+
+\entry{a4rejë}{aˈrɛjɜ}{num}{twelve}{}
+
+\entry{adam}{ˈadam}{v}{deliver}{}
+
+\entry{adwa}{ˈadwa}{n}{milk}{}
+
+\entry{aghamit}{agˈamit}{n}{handle}{}
+
+\entry{agtun}{ˈagtun}{n}{bird}{}
+
+\entry{aje}{ˈajɛ}{num}{seven}{}
+
+\entry{ak'emutik}{ter}{}{Conclusion; verdict or decision reached after some thought}{ }
+
+\entry{ak'exa}{ˈakʼɛʕa}{adj}{sequential sequence of}{}
+
+\entry{akanba}{ˈakanba}{n}{boat}{}
+
+\entry{alewar}{}{}{woman}{}
+
+\entry{ama}{ama}{}{honourific}{}
+
+\entry{apetë}{ˈapɛtɜ}{n}{t indefinite time action affix begin}{}
+
+\entry{arebwë}{}{}{heart}{}
+
+\entry{atray}{atrau}{}{horse}{}
+
+\entry{awp'ewe}{ˈawpʼɛwɛ}{n}{chin}{}
+
+\end{multicols}
+%\newpage
+\section*{B}%--------- SECTION B
+\begin{multicols}{2}
+
+\entry{bamun}{ˈbamun}{adj}{dark blue}{}
+
+\entry{bedka}{ˈbɛdka}{n}{eye}{}
+
+\entry{bi4je}{biˈjɛ}{particle}{notice.used to make listener aware of the object or topic/make object definite or exact.V.to inspect something/Interjection.to get listeners attention}{}
+
+\entry{biele}{}{}{eye}{}
+
+\entry{bilmuri}{}{}{}{}
+
+\entry{braki}{ˈbraki}{n}{name}{}
+
+\entry{bu4t'ama}{buˈtʼama}{v}{win}{}
+
+\entry{bububuwu}{ˈbububuwu}{n}{locust demon}{}
+
+\entry{bune}{ˈbunɛ}{v}{reach}{}
+
+\entry{bute}{}{}{}{}
+
+\entry{bwi}{ˈbwi}{p}{you}{}
+
+\entry{byb}{ˈbɨb}{aff}{yes or no affix}{}
+
+\entry{bëdan}{ˈbɜdan}{n}{foot}{}
+
+\entry{bëwumel}{ˈbɜwumɛl}{num}{eight}{}
+
+\end{multicols}
+%\newpage
+\section*{D}%--------- SECTION D
+\begin{multicols}{2}
+
+\entry{dami}{ˈdami}{n}{queen}{}
+
+\entry{damëk}{ˈdamɜk}{adj}{dual}{}
+
+\entry{dandel}{ˈdandɛl}{n}{bone}{}
+
+\entry{delëdewël}{ˈdɛlɜdɛwɜl}{n}{grass}{}
+
+\entry{dima}{ˈdima}{n}{thread}{}
+
+\entry{duman}{ˈduman}{adj}{gentle}{}
+
+\entry{dung4ka}{}{}{power}{}
+
+\entry{dy4xipbë}{dɨˈʕipbɜ}{adv}{in front}{}
+
+\end{multicols}
+%\newpage
+\section*{E}%--------- SECTION E
+\begin{multicols}{2}
+
+\entry{ekada}{}{}{}{}
+
+\entry{ekbumi}{ˈɛkbumi}{n}{footprint}{}
+
+\entry{epel}{ˈɛpɛl}{v}{fall}{}
+
+\entry{etal}{ˈɛtal}{v}{follow}{}
+
+\end{multicols}
+%\newpage
+\section*{G}%--------- SECTION G
+\begin{multicols}{2}
+
+\entry{gambë}{ˈgambɜ}{num}{four}{}
+
+\entry{gawde}{ˈgawdɛ}{v}{burn}{}
+
+\entry{gemid}{ˈgɛmid}{n}{heat}{}
+
+\entry{genal}{ˈgɛnal}{n}{water}{}
+
+\entry{getir}{ˈgɛtir}{adj}{slippery}{}
+
+\entry{gunla}{ˈgunla}{n}{mortar}{}
+
+\entry{gwuxe}{ˈgwuʕɛ}{v}{understand}{}
+
+\end{multicols}
+%\newpage
+\section*{I}%--------- SECTION I
+\begin{multicols}{2}
+
+\entry{i4laxem}{iˈlaʕɛm}{ppr}{Moon}{}
+
+\entry{i4matujing}{iˈmatujiŋ}{n}{snow}{}
+
+\entry{ig}{ˈig}{adj}{hard}{}
+
+\entry{ik'4amitu}{ikʼˈamitu}{v}{unravel}{}
+
+\entry{ika}{ˈika}{num}{one}{}
+
+\entry{ilmë}{ˈilmɜ}{p}{he/she/it Third Person Animate. He/She NOT he/she/it}{}
+
+\entry{inë}{ˈinɜ}{v}{ride}{}
+
+\entry{iruka}{}{}{bird}{}
+
+\end{multicols}
+%\newpage
+\section*{J}%--------- SECTION J
+\begin{multicols}{2}
+
+\entry{jagëbam}{ˈjagɜbam}{adj}{sexy}{}
+
+\entry{jangkuk}{ˈjaŋkuk}{n}{piece}{}
+
+\entry{jem}{ˈjɛm}{p}{we}{}
+
+\entry{jeng}{jeng}{}{}{}
+
+\entry{jumweme}{ˈjumwɛmɛ}{n}{child}{}
+
+\end{multicols}
+%\newpage
+\section*{K'}%--------- SECTION K'
+\begin{multicols}{2}
+
+\entry{k'etëge}{ˈkʼɛtɜgɛ}{n}{hallway}{}
+
+\entry{k'imbad}{ˈkʼimbad}{aff}{good at}{}
+
+\entry{k'ita}{ter}{}{(in) front (of)}{}
+
+\end{multicols}
+%\newpage
+\section*{K}%--------- SECTION K
+\begin{multicols}{2}
+
+\entry{kala}{ˈkala}{v}{stop}{}
+
+\entry{kalxi}{ˈkalʕi}{v}{divide}{}
+
+\entry{keng}{ˈkɛŋ}{n}{field}{}
+
+\entry{kewalul}{ˈkɛwalul}{n}{half}{}
+
+\entry{kita}{ter}{}{(in) front (of)}{}
+
+\entry{kru}{ˈkru}{adv}{about}{}
+
+\entry{ku}{ˈku}{aff}{nominalise}{nominal marker, this is dropped to show possession}
+
+\entry{kubedi}{ˈkubɛdi}{v}{beat}{}
+
+\entry{kubedi}{ˈkubɛdi}{v}{beat}{}
+
+\entry{kullaten}{ˈkullatɛn}{n}{trowel}{}
+
+\entry{kurektag}{ˈkurɛktag}{n}{horizon}{}
+
+\entry{kutel}{ˈkutɛl}{adj}{many}{}
+
+\entry{kwa}{ˈkwa}{n}{mouth}{}
+
+\entry{kwum}{ˈkwum}{num}{three}{}
+
+\entry{këbadexa}{ˈkɜbadɛʕa}{n}{snake}{}
+
+\entry{këng}{ˈkɜŋ}{n}{seed}{}
+
+\end{multicols}
+%\newpage
+\section*{L}%--------- SECTION L
+\begin{multicols}{2}
+
+\entry{la}{ˈla}{p}{i}{}
+
+\entry{labwa}{ˈlabwa}{n}{sky}{}
+
+\entry{lag}{ˈlag}{n}{message}{}
+
+\entry{lagtë}{ˈlagtɜ}{n}{cloud}{}
+
+\entry{lamet}{ˈlamɛt}{v}{wash}{}
+
+\entry{li*txan}{litˈʕan}{}{wrap around/tie}{}
+
+\end{multicols}
+%\newpage
+\section*{M}%--------- SECTION M
+\begin{multicols}{2}
+
+\entry{maja}{maja}{}{round}{}
+
+\entry{matuw}{ˈmatuw}{adj}{white}{}
+
+\entry{me4gada}{mɛˈgada}{adj}{competitive}{}
+
+\entry{merum}{ˈmɛrum}{n}{light}{}
+
+\entry{mukaru}{tatu}{}{(in) front (of)}{}
+
+\end{multicols}
+%\newpage
+\section*{N}%--------- SECTION N
+\begin{multicols}{2}
+
+\entry{na4ken}{ter}{}{(in) front (of)}{}
+
+\entry{nanu}{nanu}{}{to move oneself around something/flank}{}
+
+\entry{negala}{ˈnɛgala}{n}{food}{}
+
+\end{multicols}
+%\newpage
+\section*{NG}%--------- SECTION NG
+\begin{multicols}{2}
+
+\entry{ngari}{}{}{through/to go in and out of something}{}
+
+\entry{ngeba}{ˈŋɛba}{n}{root}{}
+
+\entry{nu4mak}{nuˈmak}{num}{three}{}
+
+\entry{nurë}{ˈnurɜ}{n}{head}{}
+
+\entry{nyma}{ˈnɨma}{i}{correct}{}
+
+\end{multicols}
+%\newpage
+\section*{P'}%--------- SECTION P'
+\begin{multicols}{2}
+
+\entry{p'idruk}{}{}{tree}{}
+
+\entry{p'ikma}{ˈpʼikma}{n}{stomach}{}
+
+\end{multicols}
+%\newpage
+\section*{P}%--------- SECTION P
+\begin{multicols}{2}
+
+\entry{padakwang}{ˈpadakwaŋ}{n}{intestines}{}
+
+\entry{pal}{}{prep}{over}{}
+
+\entry{palap}{}{}{slap}{}
+
+\entry{panana}{ˈpanana}{n}{soil}{}
+
+\entry{paˈwɜ}{}{}{short}{}
+
+\entry{pegetwutu}{}{}{blood}{}
+
+\entry{pi'un}{}{}{breast}{}
+
+\entry{pi4latëjek'}{piˈlatɜjɛkʼ}{n}{owl}{}
+
+\entry{pre}{ˈprɛ}{n}{wheel}{}
+
+\entry{puma}{ˈpuma}{n}{path}{}
+
+\entry{pungta}{ˈpuŋta}{n}{lip}{}
+
+\entry{pɨˈtab}{}{}{}{}
+
+\entry{pʼaŋ}{}{}{reference}{}
+
+\end{multicols}
+%\newpage
+\section*{R}%--------- SECTION R
+\begin{multicols}{2}
+
+\entry{ragëkak}{ˈragɜkak}{n}{spine}{}
+
+\entry{raŋ}{}{}{plant}{}
+
+\entry{redena}{ˈrɛdɛna}{v}{cook}{}
+
+\entry{rul'xamega}{ˈrulʔʕamɛga}{n}{graveyard}{}
+
+\entry{ry}{ˈrɨ}{n}{tooth}{}
+
+\entry{rɜˈbɨr}{}{}{}{}
+
+\entry{rɜˈɛ}{}{}{}{}
+
+\end{multicols}
+%\newpage
+\section*{T'}%--------- SECTION T'
+\begin{multicols}{2}
+
+\entry{t'a}{ˈtʼa}{num}{two}{}
+
+\end{multicols}
+%\newpage
+\section*{T}%--------- SECTION T
+\begin{multicols}{2}
+
+\entry{takanu}{ˈtakanu}{n}{breakfast}{}
+
+\entry{talwan}{ˈtalwan}{n}{green}{}
+
+\entry{tata}{ˈtata}{v}{gut}{}
+
+\entry{tatu}{tatu}{}{(in) front (of)}{}
+
+\entry{te'ingu}{ˈtɛʔiŋu}{aff}{yellow}{}
+
+\entry{te4t'ed}{tɛˈtʼɛd}{v}{rotate}{}
+
+\entry{ter}{ter}{}{(in) front (of)}{}
+
+\entry{ti4ja}{tiˈja}{v}{plan}{}
+
+\entry{ti4wa}{tiˈwa}{v}{talk}{}
+
+\entry{tijadal}{ˈtijadal}{v}{learn}{}
+
+\entry{tiwaty}{ˈtiwatɨ}{n}{cousin}{}
+
+\entry{tuk'e}{ˈtukʼɛ}{num}{thirteen}{}
+
+\entry{tumi}{ˈtumi}{num}{six}{}
+
+\entry{twagë}{ˈtwagɜ}{num}{nine}{}
+
+\entry{twedemi}{ˈtwɛdɛmi}{n}{authority}{}
+
+\entry{twigal}{ˈtwigal}{n}{wood}{}
+
+\entry{twutet}{ˈtwutɛt}{n}{brown}{}
+
+\entry{txam}{ˈtʕam}{n}{hole}{}
+
+\entry{ty}{ˈtɨ}{aff}{topic marker}{}
+
+\end{multicols}
+%\newpage
+\section*{U}%--------- SECTION U
+\begin{multicols}{2}
+
+\entry{udla}{ˈudla}{ppr}{Them}{}
+
+\entry{uel}{uel}{}{hand}{}
+
+\entry{uleje}{ˈulɛjɛ}{p}{none}{}
+
+\entry{un4aja}{unˈaja}{n}{fish}{}
+
+\entry{unal}{ˈunal}{n}{wing}{}
+
+\entry{untʼɜ}{}{n}{spin.rotate}{}
+
+\entry{ure}{ˈurɛ}{num}{five}{}
+
+\entry{ut'ajan}{ˈutʼajan}{n}{raw}{}
+
+\entry{uta}{ˈuta}{phr}{it is}{}
+
+\entry{utadany}{ˈutadanɨ}{n}{meeting place}{}
+
+\entry{utlawik}{ˈutlawik}{n}{egg}{}
+
+\entry{uwue}{ˈuwuɛ}{v}{rise}{}
+
+\end{multicols}
+%\newpage
+\section*{W}%--------- SECTION W
+\begin{multicols}{2}
+
+\entry{wa4ku}{waˈku}{adj}{flying}{}
+
+\entry{wa4ku}{waˈku}{v}{fly}{}
+
+\entry{waku}{ˈwaku}{n}{nose}{}
+
+\entry{weganuxe}{ˈwɛganuʕɛ}{n}{increment}{}
+
+\entry{wewel}{ˈwɛwɛl}{num}{fourteen}{}
+
+\entry{wu4kaxën}{wuˈkaʕɜn}{v}{grow}{}
+
+\entry{wëryt}{ˈwɜrɨt}{v}{god}{}
+
+\end{multicols}
+%\newpage
+\section*{X}%--------- SECTION X
+\begin{multicols}{2}
+
+\entry{xalixa}{ˈʕaliʕa}{n}{writhe}{}
+
+\entry{xammuran}{hammuran}{}{field}{}
+
+\entry{xapu}{ˈʕapu}{n}{partner}{}
+
+\entry{xuma}{ˈʕuma}{v}{pledge}{}
+
+\end{multicols}
+%\newpage
+\section*{�}%--------- SECTION �
+\begin{multicols}{2}
+
+\entry{﻿word}{ipa}{part of speech}{english definition}{notes}
+
+\end{multicols}
+\clearpage
+\end{document}
