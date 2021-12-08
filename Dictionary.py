@@ -11,7 +11,7 @@ documentUpdate = "Dec 2021"
 conlangFont = "Broadway"
 extraLetters = ["p'", "t'", "k'", "ng"]
 inputFilename = 'My_Conlang_dictionary.csv'
-outputFilename = conlang.replace(" ", "_")+'_dictionary.tex'
+outputFilename = conlang.replace(" ", "_")+'_dictionary2.tex'
 
 f_old_char = ""
 f_cur_char = ""

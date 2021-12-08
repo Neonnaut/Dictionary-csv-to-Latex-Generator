@@ -515,4 +515,468 @@ This is the dictionary section.
 
 \end{multicols}
 \clearpage
+\end{document}\documentclass[12pt,a4paper,twoside]{article}
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.2cm,right=2.2cm,columnsep=22pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{Charis SIL}
+\newfontfamily\myfont[]{Broadway}
+%\usepackage{microtype} % Improves spacing
+\usepackage[bf,sf]{titlesec} % Required for modifying section titles - bold, sans-serif, centered
+\usepackage{fancyhdr} % Required for modifying headers and footers
+\fancyhead[L]{\textsf{\rightmark}} % Top left header
+\fancyhead[R]{\textsf{\leftmark}} % Top right header
+\renewcommand{\headrulewidth}{1.4pt} % Rule under the header
+\setlength{\headheight}{14.5pt}
+\fancyfoot[C]{\textsf{\thepage\ }} % Bottom center footer
+
+\usepackage{multicol} % Required for splitting text into multiple columns
+\usepackage{ifthen} % provides \ifthenelse test
+\usepackage{xifthen} % provides \isempty test
+
+\newcommand{\entry}[4]{\textbf{#1}\markboth{#1}{#1}\ \textit{{#2}}\ {#3}\
+\ifthenelse{\isempty{#4}}
+  {#4}  % if no title option given
+{{#4} }}
+
+\begin{document}
+\title{My Conlang}
+\author{John Smith}
+\date{Dec 2021}
+\begin{titlepage}
+\begin{center}
+\vspace{10mm}
+A description of the constructed language... \\
+\vspace{40mm}
+\textnormal{ \LARGE{\myfont {My Conlang}\\}}
+\vspace{10mm}
+\fontsize{10mm}{7mm}\selectfont \textup{My Conlang}\\
+\end{center}
+\vspace{25mm}
+\centering{
+\textnormal{\large{\bf Author:\\}}
+{\large John Smith\\ }
+\vspace{8mm}
+\textnormal{\large{\bf Date:\\}}
+{\large Started: Nov 2021 \\ Last modified: Dec 2021\\ }
+\hfill
+}
+\end{titlepage}
+\tableofcontents
+
+\clearpage
+\thispagestyle{empty}
+\section{Lexicon}
+This is the dictionary section.
+\clearpage
+\pagestyle{fancy} % Use the custom headers and footers throughout the document
+\parindent=0em
+\leftskip 0.1in
+\parindent -0.1in
+
+{}{breast}{n}{}
+
+{}{flesh/meat}{n}{}
+
+{}{ear}{n}{}
+
+{}{neck}{n}{}
+
+{}{tooth}{n}{}
+
+{}{hair}{n}{}
+
+{}{leg}{n}{}
+
+{}{thigh}{n}{}
+
+{dta}{horn}{n}{}
+
+{}{navel}{n}{}
+
+{}{back}{n}{}
+
+{}{liver}{n}{}
+
+{}{knee}{n}{}
+
+{}{skin/hide}{n}{}
+
+{}{eye}{n}{}
+
+{}{face}{n}{}
+
+{}{buttocks}{n}{}
+
+{}{temple (of head)}{n}{}
+
+{}{spinal column}{n}{}
+
+{}{lips}{n}{}
+
+{}{jaw, lower jaw}{n}{}
+
+{}{head}{n}{}
+
+{}{arm}{n}{}
+
+{}{hand}{n}{}
+
+{}{finger}{n}{}
+
+{}{rib}{n}{}
+
+{}{abdomen}{n}{}
+
+{}{back (of body)}{n}{}
+
+{}{body}{n}{}
+
+{}{knee}{n}{}
+
+{}{foot}{n}{}
+
+{}{cheek}{n}{}
+
+{}{jaw}{n}{}
+
+{}{neck}{n}{}
+
+{}{chest}{n}{}
+
+{}{tail}{n}{}
+
+{}{egg}{n}{}
+
+{}{wing}{n}{}
+
+{}{fish}{n}{}
+
+{}{ant}{n}{}
+
+{}{dog}{n}{}
+
+{}{bird}{n}{}
+
+{}{fly}{n}{}
+
+{}{louse}{n}{}
+
+{}{wind}{n}{}
+
+{}{smoke}{n}{}
+
+{}{sand}{n}{}
+
+{}{soil}{n}{}
+
+{}{leaf}{n}{}
+
+{}{wood}{n}{}
+
+{}{ash}{n}{}
+
+{}{fire}{n}{}
+
+{}{water}{n}{}
+
+{}{root}{n}{}
+
+{}{rain}{n}{}
+
+{}{stone/rock}{n}{}
+
+{}{rope}{n}{}
+
+{}{shadow/shade}{n}{}
+
+{}{salt}{n}{}
+
+{}{star}{n}{}
+
+{}{star}{n}{}
+
+{}{salt}{n}{}
+
+{}{night}{n}{}
+
+{}{soil}{n}{}
+
+{}{child}{n}{}
+
+{}{to wipe, to skim}{n}{}
+
+{}{to crush, to grind}{n}{}
+
+{}{to see}{n}{}
+
+{}{to tie}{n}{}
+
+{}{to cry}{v (intr)}{}
+
+{}{to fall}{v (intr)}{}
+
+{}{to run}{v (intr)}{}
+
+{}{to blow}{v}{}
+
+{}{to eat}{v}{}
+
+{}{to carry}{v}{}
+
+{}{to suck}{v}{}
+
+{}{to hide}{v}{}
+
+{}{to take}{v}{}
+
+{}{to hear}{v}{}
+
+{}{to laugh}{v}{}
+
+{}{to know}{v}{}
+
+{}{to burn}{v (intr)}{}
+
+{}{to bite}{v}{}
+
+{}{to stand}{v}{}
+
+{gawen}{to drink}{v}{}
+
+{dontob}{to hit/beat}{v}{}
+
+{xʷenbe}{to say}{v}{}
+
+{çeçdajn}{to scratch}{v}{}
+
+{bettiç}{to give}{v}{}
+
+{}{to do/make}{v}{}
+
+{}{In}{}{}
+
+{}{yesterday}{n}{}
+
+{}{right (correct)}{}{}
+
+{}{name}{n}{}
+
+{}{they}{}{}
+
+{}{me}{}{}
+
+{}{I}{}{}
+
+{}{one}{num}{}
+
+{}{house}{n}{}
+
+{}{hard}{}{}
+
+{}{wide}{}{}
+
+{}{small}{}{}
+
+{}{sweet}{}{}
+
+{}{long}{}{}
+
+{}{thick}{}{}
+
+{}{old}{}{}
+
+{}{heavy}{}{}
+
+{}{red}{}{}
+
+{}{good}{}{}
+
+{}{not}{}{}
+
+{}{new}{}{}
+
+{}{black}{}{}
+
+{}{big}{}{}
+
+{}{bitter}{}{}
+
+{}{Far}{}{}
+
+{}{a mark, sign, token; a mark to aim at, target, object, prey, prize}{n}{}
+
+{}{to Rut, to fight over food}{v}{}
+
+{}{tree}{n}{}
+
+{}{to grow upwards}{v}{}
+
+{}{man}{n}{}
+
+{}{sleep}{v}{}
+
+{}{know}{v}{Rational beings}
+
+{}{Ochre(noun) pigment}{n}{Parts and slices of things}
+
+{}{(intr) pout; splash; blow smoke}{v}{Long things, or hollow things}
+
+{}{to estimate the value of something}{v}{Other things}
+
+{}{to grunt}{v}{}
+
+{semma}{to break, to split}{v}{}
+
+{alom}{sea, ocean, salwater lake}{n}{}
+
+{sike}{mark, prey, target}{n}{}
+
+\end{multicols}
+%\newpage
+\section*{A}%--------- SECTION A
+\begin{multicols}{2}
+
+\entry{a}{}{nose}{n}{}
+
+\end{multicols}
+%\newpage
+\section*{B}%--------- SECTION B
+\begin{multicols}{2}
+
+\entry{b}{weje}{mouth}{n}{}
+
+\end{multicols}
+%\newpage
+\section*{C}%--------- SECTION C
+\begin{multicols}{2}
+
+\entry{c}{mec}{tongue}{n}{}
+
+\end{multicols}
+%\newpage
+\section*{G}%--------- SECTION G
+\begin{multicols}{2}
+
+\entry{g}{}{bone}{n}{}
+
+\end{multicols}
+%\newpage
+\section*{P}%--------- SECTION P
+\begin{multicols}{2}
+
+\entry{pal}{}{prep}{over}{}
+
+\entry{paˈwɜ}{}{}{short}{}
+
+\entry{pi'un}{}{}{breast}{}
+
+\entry{pɨˈtab}{}{}{}{}
+
+\entry{pʼaŋ}{}{}{reference}{}
+
+\end{multicols}
+%\newpage
+\section*{R}%--------- SECTION R
+\begin{multicols}{2}
+
+\entry{raŋ}{}{}{plant}{}
+
+\entry{rɜˈbɨr}{}{}{}{}
+
+\entry{rɜˈɛ}{}{}{}{}
+
+\end{multicols}
+%\newpage
+\section*{T}%--------- SECTION T
+\begin{multicols}{2}
+
+\entry{twagë}{ˈtwagɜ}{num}{nine}{}
+
+\entry{twedemi}{ˈtwɛdɛmi}{n}{authority}{}
+
+\entry{twigal}{ˈtwigal}{n}{wood}{}
+
+\entry{twutet}{ˈtwutɛt}{n}{brown}{}
+
+\entry{txam}{ˈtʕam}{n}{hole}{}
+
+\entry{ty}{ˈtɨ}{aff}{topic marker}{}
+
+\end{multicols}
+%\newpage
+\section*{U}%--------- SECTION U
+\begin{multicols}{2}
+
+\entry{udla}{ˈudla}{ppr}{Them}{}
+
+\entry{uel}{uel}{}{hand}{}
+
+\entry{uleje}{ˈulɛjɛ}{p}{none}{}
+
+\entry{un4aja}{unˈaja}{n}{fish}{}
+
+\entry{unal}{ˈunal}{n}{wing}{}
+
+\entry{untʼɜ}{}{n}{spin.rotate}{}
+
+\entry{ure}{ˈurɛ}{num}{five}{}
+
+\entry{ut'ajan}{ˈutʼajan}{n}{raw}{}
+
+\entry{uta}{ˈuta}{phr}{it is}{}
+
+\entry{utadany}{ˈutadanɨ}{n}{meeting place}{}
+
+\entry{utlawik}{ˈutlawik}{n}{egg}{}
+
+\entry{uwue}{ˈuwuɛ}{v}{rise}{}
+
+\end{multicols}
+%\newpage
+\section*{V}%--------- SECTION V
+\begin{multicols}{2}
+
+\entry{v}{}{blood}{n}{}
+
+\end{multicols}
+%\newpage
+\section*{W}%--------- SECTION W
+\begin{multicols}{2}
+
+\entry{wa4ku}{waˈku}{adj}{flying}{}
+
+\entry{wa4ku}{waˈku}{v}{fly}{}
+
+\entry{waku}{ˈwaku}{n}{nose}{}
+
+\entry{weganuxe}{ˈwɛganuʕɛ}{n}{increment}{}
+
+\entry{wewel}{ˈwɛwɛl}{num}{fourteen}{}
+
+\entry{wu4kaxën}{wuˈkaʕɜn}{v}{grow}{}
+
+\entry{wëryt}{ˈwɜrɨt}{v}{god}{}
+
+\end{multicols}
+%\newpage
+\section*{X}%--------- SECTION X
+\begin{multicols}{2}
+
+\entry{xalixa}{ˈʕaliʕa}{n}{writhe}{}
+
+\entry{xammuran}{hammuran}{}{field}{}
+
+\entry{xapu}{ˈʕapu}{n}{partner}{}
+
+\entry{xuma}{ˈʕuma}{v}{pledge}{}
+
+\end{multicols}
+%\newpage
+\section*{�}%--------- SECTION �
+\begin{multicols}{2}
+
+\entry{﻿Word}{IPA}{Definition}{POS}{Notes}
+
+\end{multicols}
+\clearpage
 \end{document}
