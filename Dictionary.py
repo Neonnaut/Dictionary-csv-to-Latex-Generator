@@ -7,11 +7,12 @@ author = "John Smith"
 conlang = "My Conlang"
 documentCreation = "Nov 2021"
 documentUpdate = "Dec 2021"
+version = "1"
 
 conlangFont = "Broadway"
 extraLetters = ["p'", "t'", "k'", "ng"]
 inputFilename = 'My_Conlang_dictionary.csv'
-outputFilename = conlang.replace(" ", "_")+'_dictionary2.tex'
+outputFilename = conlang.replace(" ", "_")+'_dictionaryx.tex'
 
 f_old_char = ""
 f_cur_char = ""
@@ -95,10 +96,10 @@ with open(outputFilename, 'a') as myFile:
     myFile.write('\\usepackage{xifthen} % provides \isempty test\n\n')
 
     myFile.write(
-        '\\newcommand{\\entry}[4]{\\textbf{#1}\\markboth{#1}{#1}\\ \\textit{{#2}}\\ {#3}\\\n')
-    myFile.write('\\ifthenelse{\\isempty{#4}}\n')
-    myFile.write('  {#4}  % if no title option given\n')
-    myFile.write('{{#4} }}\n\n')
+        '\\newcommand{\\entry}[5]{\\textbf{#1}\\markboth{#1}{#1}\\ {[#2]}\\ \\textit{{#3}.}\\ {#4}\\\n')
+    myFile.write('\\ifthenelse{\\isempty{#5}}\n')
+    myFile.write('  {#5}  % if no title option given\n')
+    myFile.write('{- {#5} }}\n\n')
 
     myFile.write('\\begin{document}\n')
     myFile.write('\\title{' + conlang + '}\n')
@@ -107,12 +108,11 @@ with open(outputFilename, 'a') as myFile:
     myFile.write('\\begin{titlepage}\n')
     myFile.write('\\begin{center}\n')
     myFile.write('\\vspace{10mm}\n')
-    myFile.write('A description of the constructed language... \\\\\n')
     myFile.write('\\vspace{40mm}\n')
     myFile.write('\\textnormal{ \\LARGE{\\myfont {' + conlang + '}\\\\}}\n')
     myFile.write('\\vspace{10mm}\n')
     myFile.write(
-        '\\fontsize{10mm}{7mm}\\selectfont \\textup{' + conlang + '}\\\\\n')
+        '\\fontsize{10mm}{7mm}\\selectfont \\textup{' + conlang + ' to English Dictionary}\\\\\n')
     myFile.write('\\end{center}\n')
 
     myFile.write('\\vspace{25mm}\n')
@@ -122,18 +122,11 @@ with open(outputFilename, 'a') as myFile:
     myFile.write('\\vspace{8mm}\n')
     myFile.write('\\textnormal{\\large{\\bf Date:\\\\}}\n')
     myFile.write(
-        '{\\large Started: ' + documentCreation + ' \\\\ Last modified: ' + documentUpdate + '\\\\ }\n')
+        '{\\large Document created: ' + documentCreation + ' \\\\ Last modified: ' + documentUpdate + '\\\\ Version: ' + version + '\\\\}\n')
     myFile.write('\\hfill\n')
     myFile.write('}\n')
     myFile.write('\\end{titlepage}\n')
 
-    myFile.write('\\tableofcontents\n\n')
-    myFile.write('\\clearpage\n')
-    myFile.write('\\thispagestyle{empty}\n')
-
-    myFile.write('\\section{Lexicon}\n')
-    myFile.write('This is the dictionary section.\n')
-    myFile.write('\\clearpage\n')
     myFile.write(
         '\\pagestyle{fancy} % Use the custom headers and footers throughout the document\n')
     myFile.write('\\parindent=0em\n')

@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.7.14)  9 DEC 2021 05:37
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.7.14)  9 DEC 2021 17:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**My_Conlang_dictionary2.tex
-(./My_Conlang_dictionary2.tex
+**My_Conlang_dictionaryx.tex
+(./My_Conlang_dictionaryx.tex
 LaTeX2e <2018-04-01> patch level 5
 
 (c:/Users/james/SoftwareData/texlive/2018/texmf-dist/tex/latex/base/article.cls
@@ -595,8 +595,9 @@ LaTeX Info: Redefining \addtolength on input line 81.
 (c:/Users/james/SoftwareData/texlive/2018/texmf-dist/tex/latex/ifmtarg/ifmtarg.
 sty
 Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
-)) (./My_Conlang_dictionary2.aux)
-\openout1 = `My_Conlang_dictionary2.aux'.
+))
+No file My_Conlang_dictionaryx.aux.
+\openout1 = `My_Conlang_dictionaryx.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
@@ -612,7 +613,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -712,26 +712,26 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 24.
 [1
 
-] (./My_Conlang_dictionary2.toc)
-\tf@toc=\write3
-\openout3 = `My_Conlang_dictionary2.toc'.
+] [2]
+Underfull \vbox (badness 1389) has occurred while \output is active []
 
- [2] [3
-
-] [4
-
-]
+Missing character: There is no ʼ in font [lmsans12-regular]:mapping=tex-text;!
+ [3]
+Invalid UTF-8 byte or sequence at line 448 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 448 replaced by U+FFFD.
 Missing character: There is no � in font [lmsans10-bold]:mapping=tex-text;!
+
+[4]
 Missing character: There is no ﻿ in font [lmsans12-regular]:mapping=tex-text;!
- [5]
-(./My_Conlang_dictionary2.aux) ) 
+Missing character: There is no ﻿ in font [lmsans12-regular]:mapping=tex-text;!
+ [5] (./My_Conlang_dictionaryx.aux) ) 
 Here is how much of TeX's memory you used:
- 12382 strings out of 492969
- 266704 string characters out of 6126783
- 348883 words of memory out of 5000000
- 16355 multiletter control sequences out of 15000+600000
+ 12373 strings out of 492969
+ 266542 string characters out of 6126783
+ 362890 words of memory out of 5000000
+ 16351 multiletter control sequences out of 15000+600000
  532506 words of font info for 45 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  39i,11n,65p,357b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on My_Conlang_dictionary2.pdf (5 pages).
+Output written on My_Conlang_dictionaryx.pdf (5 pages).
