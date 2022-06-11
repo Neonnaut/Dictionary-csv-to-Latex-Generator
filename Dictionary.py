@@ -96,10 +96,14 @@ with open(outputFilename, 'a') as myFile:
     myFile.write('\\usepackage{xifthen} % provides \isempty test\n\n')
 
     myFile.write(
-        '\\newcommand{\\entry}[5]{\\textbf{#1}\\markboth{#1}{#1}\\ {[#2]}\\ \\textit{{#3}.}\\ {#4}\\\n')
+        '\\newcommand{\\entry}[5]{\\textbf{\\color{white}{#1}}\\markboth{#1}{#1}\\ {[#2]}\\ \\textit{{#3}.}\\ {\\color{white}{#4}}\\\n')
     myFile.write('\\ifthenelse{\\isempty{#5}}\n')
     myFile.write('  {#5}  % if no title option given\n')
     myFile.write('{- {#5} }}\n\n')
+
+    myFile.write('\\usepackage{xcolor}\n')
+    myFile.write('\\pagecolor[rgb]{0.18,0.18,0.23} %black\n')
+    myFile.write('\\color[rgb]{0.84,0.88,0.94} %grey\n\n')
 
     myFile.write('\\begin{document}\n')
     myFile.write('\\title{' + conlang + '}\n')
@@ -112,7 +116,7 @@ with open(outputFilename, 'a') as myFile:
     myFile.write('\\textnormal{ \\LARGE{\\myfont {' + conlang + '}\\\\}}\n')
     myFile.write('\\vspace{10mm}\n')
     myFile.write(
-        '\\fontsize{10mm}{7mm}\\selectfont \\textup{' + conlang + ' to English Dictionary}\\\\\n')
+        '\\fontsize{10mm}{7mm}\\selectfont \\textup{' + conlang + '}\\\\\n')
     myFile.write('\\end{center}\n')
 
     myFile.write('\\vspace{25mm}\n')

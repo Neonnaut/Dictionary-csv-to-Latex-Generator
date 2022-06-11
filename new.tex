@@ -1,0 +1,372 @@
+%--------------------------------------------- SETUP
+\documentclass[12pt,a4paper,twoside]{article} % 10pt font size, A4 paper and two-sided margins
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.2cm,right=2.2cm,columnsep=22pt]{geometry} % Document margins and spacings
+\usepackage{fontspec}
+\setmainfont{Charis SIL}
+\newfontfamily\myfont[]{Broadway}
+%\setmainfont{Minion Pro}
+
+\usepackage{microtype} % Improves spacing
+\usepackage[bf,sf]{titlesec} % Required for modifying section titles - bold, sans-serif, centered
+\usepackage{fancyhdr} % Required for modifying headers and footers
+\fancyhead[L]{\textsf{\rightmark}} % Top left header
+\fancyhead[R]{\textsf{\leftmark}} % Top right header
+\renewcommand{\headrulewidth}{1.4pt} % Rule under the header
+\fancyfoot[C]{\textsf{\thepage\ }} % Bottom center footer
+
+\usepackage{multicol} % Required for splitting text into multiple columns
+
+\usepackage{ifthen} % provides \ifthenelse test  
+\usepackage{xifthen} % provides \isempty test
+
+\usepackage{xcolor}
+
+\pagecolor[rgb]{0.18,0.18,0.23} %black
+
+\color[rgb]{0.84,0.88,0.94} %grey
+	
+% Defines the command to print each word on the page, \markboth{}{} prints the first word on the page in the top left header and the last word in the top right
+\newcommand{\0}[4]{\textbf{\color{white}{#1}}\markboth{#1}{#1}\ \textit{{#2}}\ {\color{white}{#3}}\
+\ifthenelse{\isempty{#4}}  
+            {#4}               % if no title option given
+            {note: {#4} }}
+            
+\newcommand{\1}[4]{\textbf{#1}\ \textsuperscript{1}\textit{{#2}}\ {#3}\
+\ifthenelse{\isempty{#4}}  
+            {#4.}               % if no title option given
+            {\textsuperscript{NB}{#4} }}
+            
+\newcommand{\2}[3]{ \textit{\textsuperscript{2}{#1}}\ {#2}
+\ifthenelse{\isempty{#3}}  
+            {#3}               % if no title option given
+            {\textsuperscript{NB}{#3} }}
+            
+\newcommand{\x}[4]{\textbf{1} \textbf{#1}\markboth{#1}{#1}\ \textit{{#2}}\ {#3}\
+\ifthenelse{\isempty{#4}}  
+            {#4}               % if no title option given
+            {{#4} }}
+            
+\newcommand{\q}[4]{\textbf{#1}\textsuperscript{1}\markboth{#1}{#1}\ \textit{{#2}}\ {#3}\
+\ifthenelse{\isempty{#4}}  
+            {#4}               % if no title option given
+            {{#4} }}
+            
+\newcommand{\entry}[4]{\textbf{#1}\markboth{#1}{#1}\ \textit{{#2}}\ {#3}\
+\ifthenelse{\isempty{#4}}  
+            {#4}               % if no title option given
+            {{#4} }}
+            
+\newcommand{\entryOne}[4]{\textbf{#1}\textsuperscript{1}\markboth{#1}{#1}\ \textit{{#2}}\ {#3}\
+\ifthenelse{\isempty{#4}}  
+            {#4}               % if no title option given
+            {{#4} }}
+
+\newcommand{\entryTwo}[4]{\textbf{#1}\textsuperscript{2}\markboth{#1}{#1}\ \textit{{#2}}\ {#3}\
+\ifthenelse{\isempty{#4}}  
+            {#4}               % if no title option given
+            {{#4} }}
+
+\newcommand{\entryA}[4]{\textbf{#1}\markboth{#1}{#1}\ \textit{{#2}}\ \textbf{1} {#3}\
+\ifthenelse{\isempty{#4}}  
+            {#4}               % if no title option given
+            {{#4} }}
+            
+\newcommand{\entryOneA}[4]{\textbf{#1}\textsuperscript{1}\markboth{#1}{#1}\ \textit{{#2}}\ \textbf{1} {#3}\
+\ifthenelse{\isempty{#4}}  
+            {#4}               % if no title option given
+            {{#4} }}
+
+\newcommand{\entryTwoA}[4]{\textbf{#1}\textsuperscript{2}\markboth{#1}{#1}\ \textit{{#2}}\ \textbf{1} {#3}\
+\ifthenelse{\isempty{#4}}  
+            {#4}               % if no title option given
+            {{#4} }}
+            
+\newcommand{\entryB}[4]{\textbf{2} {#3}\
+\ifthenelse{\isempty{#4}}  
+            {#4}               % if no title option given
+            {{#4} }}
+                     
+\newcommand{\derived}[4]{>> \textbf{#1}\markboth{#1}{#1}\ \textit{{#2}}\ {#3}\
+\ifthenelse{\isempty{#4}}  
+            {#4}               % if no title option given
+            {{#4} }}
+
+%-----------------------------------------------------
+
+\begin{document}
+\title{Fealke}
+\author{James}
+\date{2020}
+\begin{titlepage}
+\begin{center}
+   \vspace{10mm}
+    The phonology, grammar, lexicon and speakers of:\\
+	\vspace{30mm}
+	\textnormal{ \LARGE{\myfont{Fealke}\\}}
+	\vspace{10mm}
+	\fontsize{20mm}{7mm}\selectfont \textup{Asabedtese}\\
+\end{center}
+
+\vspace{25mm}
+\centering{
+\textnormal{\large{\bf Author:\\}}
+{\large Someone\\ }
+\vspace{8mm}
+\textnormal{\large{\bf Date:\\}}
+{\large Started November 2019 \\ Last modified March 2020\\ }
+\hfill
+}
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+\thispagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{similaricalations2}
+\subsection{Vowel reduction/mutation}
+Vowels in parenthesis occur from vowel reduction and epenthesis.
+
+\subsection{Phonotactics}
+Syllables are of the type V (a vowel) or CV (a consonant and a vowel).
+\clearpage
+
+\section{Lexicon}
+This is the dictionary section.
+\clearpage
+\pagestyle{fancy} % Use the custom headers and footers throughout the document
+\parindent=0em
+\leftskip 0.1in
+\parindent -0.1in
+
+\subsection*{A} %------------------------- SECTION - A
+\begin{multicols}{2}
+
+\entryOneA{nona}{r}{nominalization particle}{}
+\entryB{nona}{r}{nominalization particle}{}
+
+\entryTwoA{nona}{d}{nominalization particle}{}
+\entryB{nona}{d}{nominalization particle}{}
+
+\entryA{nire}{n}{ear}{}
+\entryB{nire}{n}{earggg}{}
+
+\entryOne{cadane}{n}{head}{note}
+
+\entryTwo{cadane}{n}{eye}{}
+
+\entry{evaka evokadoka}{n}{mouth}{}
+
+\derived{kwetr}{}{tooth}{}
+
+\0{kwe}{}{tooth}{}
+
+\0{gwa'a}{}{tungue}{}
+
+\0{lalu}{}{arm}{}
+
+\0{bpo}{}{hand}{}
+
+\0{tesi}{}{leg}{}
+
+\0{mbela}{v}{foot}{example}
+
+\0{kwumeri}{}{skin}{}
+
+\0{kumai}{}{blood}{}
+
+\0{siveci}{}{hair}{}
+
+\0{rukaze}{}{feather}{}
+
+\0{karaga}{}{earth}{}
+
+\0{imuno}{}{root}{}
+
+\0{balui}{}{stone}{}
+
+\0{te}{}{}{}
+
+\0{kuguna}{}{string}{}
+
+\0{zuculu}{}{tired }{}
+
+\0{gwite}{}{endure }{}
+
+\0{na’uda}{}{moment, for a moment, for this moment, temporarily}{}
+
+\0{zlena}{}{with somebody, }{}
+
+\0{yerana}{}{}{}
+
+\0{letara}{}{}{}
+
+\0{oparopa}{}{grease}{}
+
+\0{dasuna}{}{taste}{}
+
+\0{zanewena}{}{}{}
+
+\0{nigalo}{}{}{}
+
+\0{e'ewaje}{}{}{}
+
+\0{zlemena}{}{}{}
+
+\0{menotowa}{}{}{}
+
+\0{maloni}{}{}{}
+
+\0{naroke}{}{}{}
+
+\0{arovo}{}{break from an activity}{}
+
+\0{areda}{}{more}{}
+
+\0{erachini}{}{}{}
+
+\0{bangeta}{}{begin, start, initiate, originate}{}
+
+\0{ja'oco}{}{desision}{}
+
+\0{mava}{v}{to give}{}
+
+\0{pigamalone}{v}{buff, to shine}{}
+
+\0{irewene}{adj}{wild}{}
+
+\0{gavare}{}{to hide, to cover, to conseal}{}
+
+\0{ozete}{n}{river}{}
+
+\0{fume}{n}{lake}{}
+
+\0{fujile}{}{wind}{}
+
+\0{naboce}{}{rain}{}
+
+\0{hwava}{}{storm}{}
+
+\0{dtahi}{}{snow}{}
+
+\0{a}{cl}{a}{Spans of time less than a day}
+
+\0{aavuziena}{n}{a}{}
+
+\0{anekoro}{n}{a}{}
+
+\0{ada}{}{every}{}
+
+\0{adaponi}{}{everyone}{}
+
+\0{jaracagi}{}{crab}{}
+
+\0{posema}{}{divide}{}
+
+\0{nuposema}{}{split, chasm, trench, fissure}{}
+
+\0{arovo}{}{break from an activity}{}
+
+\0{areda}{}{more}{}
+
+\0{erachini}{}{}{}
+
+\0{bangeta}{}{begin, start, initiate, originate}{}
+
+\0{ja'oco}{}{desision}{}
+
+\0{mava}{v}{to give}{}
+
+\0{pigamalone}{v}{buff, to shine}{}
+
+\0{irewene}{adj}{wild}{}
+
+\0{gavare}{}{to hide, to cover, to conseal}{}
+
+\0{ozete}{n}{river}{}
+
+\0{fume}{n}{lake}{}
+
+\0{fujile}{}{wind}{}
+
+\0{naboce}{}{rain}{}
+
+\0{hwava}{}{storm}{}
+
+\0{dtahi}{}{snow}{}
+
+\0{a}{cl}{a}{Spans of time less than a day}
+
+\0{aavuziena}{n}{a}{}
+
+\0{anekoro}{n}{a}{}
+
+\0{ada}{}{every}{}
+
+\0{adaponi}{}{everyone}{}
+
+\0{jaracagi}{}{crab}{}
+
+\0{posema}{}{divide}{}
+
+\0{nuposema}{}{split, chasm, trench, fissure}{}
+
+\0{kozehe}{}{slither}{}
+
+\0{jizilu}{}{fruit}{}
+
+\0{ati}{}{}{}
+
+\0{tina}{}{}{}
+
+\0{keme}{}{}{}
+
+\0{ezli}{}{}{}
+
+\0{nore}{}{}{}
+
+\0{kwata}{}{}{}
+
+\0{kwara}{v}{to preserve, to conserve, to keep}{}
+
+\0{pate}{v}{to sit}{}
+
+\0{elo}{}{}{}
+
+\0{cimo}{}{}{}
+
+\0{caga}{v}{think}{}
+
+\1{tosio}{v}{dedicate to}{}\2{v}{direct attention to}{}
+
+\end{multicols}
+\subsection*{B} %------------------------- SECTION B
+\begin{multicols}{2}
+
+\0{alakge}{n}{king}{a}
+
+\0{ambe}{n}{brother}{}\0{ambaave}{n}{brothers}{}
+
+\1{ana}{pst}{by, at}{}\2{pst}{out of a material}{}
+
+\0{awee}{awee}{n}{sea}{}
+
+\1{bedte}{n}{land}{Used in country names such as Kaslobedt}
+\2{n}{property}{}
+
+\0{boma}{n}{mother}{}
+
+\0{bpola}{cl}{classifier for female animals}{notes}
+
+\end{multicols}
+\clearpage
+\pagestyle{plain}
+\subsection*{Common personal names}
+%-------------------------------------------------------
+\begin{multicols}{2}
+
+\0{bpola}{cl}{classifier for female animals}{notes}
+
+\end{multicols}
+\clearpage
+\end{document}
