@@ -6,7 +6,6 @@ from datetime import datetime as dt
 conlang = "Conlang Name"
 author = "John Smith"
 inputFilename = 'lexicon.csv'
-outputFilename = conlang.replace(" ", "_")+'_dictionaryx.tex'
 
 # Extra-ASCI letters in the language that will form a category of words
 extraLetters = ["p'", "t'", "k'", "ʎ", "ʔ", "ʙ", "ʦ", "ʣ"]
@@ -14,6 +13,7 @@ extraLetters = ["p'", "t'", "k'", "ʎ", "ʔ", "ʙ", "ʦ", "ʣ"]
 darkTheme = input("Use dark theme? (y/n) ")
 hasHeader = input("Does the csv file have a header? (y/n) ")
 
+outputFilename = conlang.replace(" ", "_")+'_dictionaryx.tex'
 timeNow = dt.today().strftime('%A %d %B %Y')
 f_old_char = ""
 f_cur_char = ""
