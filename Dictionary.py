@@ -1,19 +1,20 @@
 import csv
 import operator
+import os
 from datetime import datetime as dt
 
 conlang = "Conlang Name"
 author = "John Smith"
-documentUpdate = dt.today().strftime('%A %d %B %Y')
-
 inputFilename = 'lexicon.csv'
 outputFilename = conlang.replace(" ", "_")+'_dictionaryx.tex'
 
-conlangFont = "Broadway"
+# Extra-ASCI letters in the language that will form a category of words
 extraLetters = ["p'", "t'", "k'", "ʎ", "ʔ", "ʙ", "ʦ", "ʣ"]
 
-colorTheme = 'dark'
+darkTheme = input("Use dark theme? (y/n) ")
+hasHeader = input("Does the csv file have a header? (y/n) ")
 
+timeNow = dt.today().strftime('%A %d %B %Y')
 f_old_char = ""
 f_cur_char = ""
 s_old_char = ""
@@ -23,9 +24,10 @@ index_letter = ""
 startOfList = True
 with open(inputFilename, 'r', encoding="utf-8") as f:
     reader = csv.reader(f)
+    if hasHeader == "y":
+        next(reader, None)
     your_list = list(reader)
     document = ""
-
     your_list = sorted(your_list, key=operator.itemgetter(0))
     for row in your_list:
         num = 0
@@ -76,7 +78,7 @@ with open(outputFilename, 'a', encoding="utf-8") as myFile:
     myFile.write(
         '\\usepackage[top=2.5cm,bottom=2.5cm,left=2.2cm,right=2.2cm,columnsep=22pt]{geometry}\n')
     myFile.write(
-        '\\usepackage{fontspec}\n\\setmainfont{Charis SIL}\n\\newfontfamily\myfont[]{'+conlangFont+'}\n')
+        '\\usepackage{fontspec}\n\\setmainfont{Charis SIL}\n\\newfontfamily\myfont[]{Broadway}\n')
     myFile.write('%\\usepackage{microtype} % Improves spacing\n')
     myFile.write(
         '\\usepackage[bf]{titlesec} % Required for modifying section titles - bold, sans-serif, centered\n')
@@ -96,7 +98,7 @@ with open(outputFilename, 'a', encoding="utf-8") as myFile:
     myFile.write('\\usepackage{xifthen} % provides \isempty test\n\n')
 
     boldColor = ''
-    if colorTheme == 'dark':
+    if darkTheme.casefold() == 'y':
         myFile.write('\\usepackage{xcolor}\n')
         myFile.write('\\pagecolor[rgb]{0.18,0.18,0.23} %black\n')
         myFile.write('\\color[rgb]{0.84,0.88,0.94} %grey\n\n')
@@ -141,12 +143,11 @@ with open(outputFilename, 'a', encoding="utf-8") as myFile:
     myFile.write('\\begin{document}\n')
     myFile.write('\\title{' + conlang + '}\n')
     myFile.write('\\author{' + author + '}\n')
-    myFile.write('\\date{' + documentUpdate + '}\n')
+    myFile.write('\\date{' + timeNow + '}\n')
     myFile.write('\\begin{titlepage}\n')
     myFile.write('\\begin{center}\n')
     myFile.write('  \\vspace{10mm}\n')
     myFile.write('  \\vspace{40mm}\n')
-    myFile.write('  \\textnormal{ \\LARGE{\\myfont {' + conlang + '}\\\\}}\n')
     myFile.write('  \\vspace{10mm}\n')
     myFile.write(
         '  \\fontsize{10mm}{7mm}\\selectfont \\textup{' + conlang + '}\\\\\n')
@@ -159,14 +160,14 @@ with open(outputFilename, 'a', encoding="utf-8") as myFile:
     myFile.write('\\vspace{8mm}\n')
     myFile.write('\\textnormal{\\large{\\bf Last Modified:\\\\}}\n')
     myFile.write(
-        '{\\large ' + documentUpdate + '\\\\}\n')
+        '{\\large ' + timeNow + '\\\\}\n')
     myFile.write('\\hfill\n')
     myFile.write('}\n')
     myFile.write('\\end{titlepage}\n')
 
     myFile.write('\\tableofcontents\n')
-    myFile.write('\\clearpage\n')
     myFile.write('\\thispagestyle{empty}\n\n')
+    myFile.write('\\clearpage\n')
 
     myFile.write('%-----------------------------------------------------\n\n')
 
@@ -181,4 +182,6 @@ with open(outputFilename, 'a', encoding="utf-8") as myFile:
 
     myFile.write('\\end{multicols}\n\\clearpage\n\\end{document}')
 
-    print('Excellent')
+os.system(f"xelatex {outputFilename}")
+os.system(f"xelatex {outputFilename}")
+print(f"Made {outputFilename}")
