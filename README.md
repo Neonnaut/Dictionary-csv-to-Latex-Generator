@@ -5,7 +5,7 @@ This tool converts a dictionary in csv format to a LaTeX pdf.
 
 ## Setup
 
-Make sure to have your columns in the order: `Word`, `IPA`, `POS`, `Definition`, `Notes`
+Make sure to have your columns in your .csv file in the order: `Word`, `IPA`, `POS`, `Definition`, `Notes`
 
 In `Dictionary.py` change `conlang`, `author`, `extraLetters` and `inputFilename` to your conlang's setup.
 
