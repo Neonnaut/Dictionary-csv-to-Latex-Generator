@@ -132,6 +132,12 @@ with open(outputFilename, 'a', encoding="utf-8") as myFile:
     myFile.write('  {#5}  % if no title option given\n')
     myFile.write('{- {#5} }}\n\n')
 
+    myFile.write(
+        '\\newcommand{\\entrySmall}[3]{\\textbf{\\color{' + boldColor + '}{#1}}\\markboth{#1}{#1}\\ {\\color{white}{#2}}\\\n')
+    myFile.write('\\ifthenelse{\\isempty{#3}}\n')
+    myFile.write('  {#3}  % if no title option given\n')
+    myFile.write('{- {#3} }}\n\n')
+
     myFile.write('\\newcommand\\invisiblesection[1]{%\n')
     myFile.write('  \\refstepcounter{section}%\n')
     myFile.write(
@@ -171,17 +177,17 @@ with open(outputFilename, 'a', encoding="utf-8") as myFile:
 
     myFile.write('%-----------------------------------------------------\n\n')
 
+    myFile.write('\\invisiblesection{Lexicon}\n')
     myFile.write(
         '\\pagestyle{fancy} % Use the custom headers and footers throughout the document\n')
     myFile.write('\\parindent=0em\n')
     myFile.write('\\leftskip 0.1in\n')
     myFile.write('\\parindent -0.1in\n\n')
 
-    myFile.write('\\invisiblesection{Lexicon}\n')
     myFile.write(document)
 
     myFile.write('\\end{multicols}\n\\clearpage\n\\end{document}')
 
 os.system(f"xelatex {outputFilename}")
-os.system(f"xelatex {outputFilename}")
+#os.system(f"xelatex {outputFilename}")
 print(f"Made {outputFilename}")
