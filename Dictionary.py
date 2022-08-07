@@ -21,13 +21,101 @@ s_old_char = ""
 s_cur_char = ""
 index_letter = ""
 
+
+PREAMBLE = ""\
+    + '\\documentclass[12pt,a4paper,twoside]{article}'\
+    + '\n\\usepackage[top=2.5cm,bottom=2.5cm,left=2.2cm,right=2.2cm,columnsep=22pt]{geometry}'\
+    + '\n\\usepackage{fontspec}\n\\setmainfont{Charis SIL}'\
+    + '\n\\newfontfamily\myfont[]{Broadway}'\
+    + '\n%\\usepackage{microtype} % Improves spacing'\
+    + '\n\\usepackage[bf]{titlesec} % Required for modifying section titles - bold, sans-serif, centered'\
+    + '\n\\usepackage{fancyhdr} % Required for modifying headers and footers'\
+    + '\n\\fancyhead[L]{\\rightmark} % Top left header'\
+    + '\n\\fancyhead[R]{\leftmark} % Top right header'\
+    + '\n\\renewcommand{\headrulewidth}{1.4pt} % Rule under the header'\
+    + '\n\\setlength{\headheight}{14.5pt}'\
+    + '\n\\fancyfoot[C]{\\textsf{\\thepage\\ }} % Bottom center footer'\
+    + '\n\\usepackage{multicol} % Required for splitting text into multiple columns'\
+    + '\n\\usepackage{ifthen} % provides \ifthenelse test'\
+    + '\n\\usepackage{xifthen} % provides \isempty test\n\n'
+
+if darkTheme.casefold() == 'y':
+    boldColor = 'white'
+    PREAMBLE += ""\
+        + '\n\\usepackage{xcolor}'\
+        + '\n\\pagecolor[rgb]{0.18,0.18,0.23} %black'\
+        + '\n\\color[rgb]{0.84,0.88,0.94} %grey\n\n'\
+        + '\n\\usepackage{hyperref}'\
+        + '\n\\hypersetup{'\
+        + 'colorlinks,'\
+        + 'citecolor=white,'\
+        + 'filecolor=white,'\
+        + 'linkcolor=white,'\
+        + 'urlcolor=white'\
+        + '}\n\n'
+else:
+    boldColor = 'black'
+    PREAMBLE += ""\
+        + '\\usepackage{xcolor}\n'\
+        + '\\color[rgb]{0.18,0.18,0.18} %grey\n\n'\
+        + '\n\\usepackage{hyperref}'\
+        + '\n\\hypersetup{\n'\
+        + 'colorlinks,'\
+        + 'citecolor=black,'\
+        + 'filecolor=black,'\
+        + 'linkcolor=black,'\
+        + 'urlcolor=black'\
+        + '}\n\n'
+
+PREAMBLE += ""\
+    + '\\newcommand{\\entry}[5]{\\textbf{\\color{' + boldColor + '}{#1}}\\markboth{#1}{#1}\\ [{\\color{' + boldColor + '}#2}]\\ \\textit{{#3}}\\ {\\color{' + boldColor + '}{#4}}\\\n'\
+    + '\\ifthenelse{\\isempty{#5}}\n'\
+    + '  {#5}  % if no title option given\n'\
+    + '{- {#5} }}\n\n'\
+    + '\\newcommand{\\entrySmall}[3]{\\textbf{\\color{' + boldColor + '}{#1}}\\markboth{#1}{#1}\\ {\\color{white}{#2}}\\\n'\
+    + '\\ifthenelse{\\isempty{#3}}\n'\
+    + '  {#3}  % if no title option given\n'\
+    + '{- {#3} }}\n\n'\
+    + '\\newcommand\\invisiblesection[1]{%\n'\
+    + '  \\refstepcounter{section}%\n'\
+    + '  \\addcontentsline{toc}{section}{\\protect\\numberline{\\thesection}#1}\n'\
+    + '  \sectionmark{#1}}\n\n'\
+    + '  %-----------------------------------------------------\n\n'
+
+TITLE = ''\
+    + '\\begin{document}\n'\
+    + '\\title{' + conlang + '}\n'\
+    + '\\author{' + author + '}\n'\
+    + '\\date{' + timeNow + '}\n'\
+    + '\\begin{titlepage}\n'\
+    + '\\begin{center}\n'\
+    + '  \\vspace{10mm}\n'\
+    + '  \\vspace{40mm}\n'\
+    + '  \\vspace{10mm}\n'\
+    + '  \\fontsize{10mm}{7mm}\\selectfont \\textup{' + conlang + '}\\\\\n'\
+    + '\\end{center}\n'\
+    + '\\vspace{25mm}\n'\
+    + '\\centering{\n'\
+    + '\\textnormal{\\large{\\bf Author:\\\\}}\n'\
+    + '{\\large ' + author + '\\\\ }\n'\
+    + '\\vspace{8mm}\n'\
+    + '\\textnormal{\\large{\\bf Last Modified:\\\\}}\n'\
+    + '{\\large ' + timeNow + '\\\\}\n'\
+    + '\\hfill\n'\
+    + '}\n'\
+    + '\\end{titlepage}\n'\
+    + '\\tableofcontents\n'\
+    + '\\thispagestyle{empty}\n\n'\
+    + '\\clearpage\n'\
+    + '%-----------------------------------------------------\n\n'\
+
+DOCUMENT = ""
 startOfList = True
 with open(inputFilename, 'r', encoding="utf-8") as f:
     reader = csv.reader(f)
     if hasHeader == "y":
         next(reader, None)
     your_list = list(reader)
-    document = ""
     your_list = sorted(your_list, key=operator.itemgetter(0))
     for row in your_list:
         num = 0
@@ -72,122 +160,23 @@ with open(inputFilename, 'r', encoding="utf-8") as f:
                 row[num] = "{" + row[num] + "}"
             num += 1
         line = "".join(row) + "\n\n"
-        document = document + line
+        DOCUMENT = DOCUMENT + line
 with open(outputFilename, 'a', encoding="utf-8") as myFile:
-    myFile.write('\\documentclass[12pt,a4paper,twoside]{article}\n')
-    myFile.write(
-        '\\usepackage[top=2.5cm,bottom=2.5cm,left=2.2cm,right=2.2cm,columnsep=22pt]{geometry}\n')
-    myFile.write(
-        '\\usepackage{fontspec}\n\\setmainfont{Charis SIL}\n\\newfontfamily\myfont[]{Broadway}\n')
-    myFile.write('%\\usepackage{microtype} % Improves spacing\n')
-    myFile.write(
-        '\\usepackage[bf]{titlesec} % Required for modifying section titles - bold, sans-serif, centered\n')
-    myFile.write(
-        '\\usepackage{fancyhdr} % Required for modifying headers and footers\n')
-    myFile.write('\\fancyhead[L]{\\rightmark} % Top left header\n')
-    myFile.write('\\fancyhead[R]{\leftmark} % Top right header\n')
-    myFile.write(
-        '\\renewcommand{\headrulewidth}{1.4pt} % Rule under the header\n')
-    myFile.write(
-        '\\setlength{\headheight}{14.5pt}\n')
-    myFile.write(
-        '\\fancyfoot[C]{\\textsf{\\thepage\\ }} % Bottom center footer\n\n')
-    myFile.write(
-        '\\usepackage{multicol} % Required for splitting text into multiple columns\n')
-    myFile.write('\\usepackage{ifthen} % provides \ifthenelse test\n')
-    myFile.write('\\usepackage{xifthen} % provides \isempty test\n\n')
 
-    boldColor = ''
-    if darkTheme.casefold() == 'y':
-        myFile.write('\\usepackage{xcolor}\n')
-        myFile.write('\\pagecolor[rgb]{0.18,0.18,0.23} %black\n')
-        myFile.write('\\color[rgb]{0.84,0.88,0.94} %grey\n\n')
-        boldColor = 'white'
+    myFile.write(PREAMBLE)
 
-        myFile.write('\\usepackage{hyperref}')
-        myFile.write('\\hypersetup{\n')
-        myFile.write('colorlinks,')
-        myFile.write('citecolor=white,')
-        myFile.write('filecolor=white,')
-        myFile.write('linkcolor=white,')
-        myFile.write('urlcolor=white')
-        myFile.write('}\n\n')
-    else:
-        myFile.write('\\usepackage{xcolor}\n')
-        myFile.write('\\color[rgb]{0.18,0.18,0.18} %grey\n\n')
-        boldColor = 'black'
-
-        myFile.write('\\usepackage{hyperref}\n')
-        myFile.write('\\hypersetup{\n')
-        myFile.write('colorlinks,')
-        myFile.write('citecolor=black,')
-        myFile.write('filecolor=black,')
-        myFile.write('linkcolor=black,')
-        myFile.write('urlcolor=black')
-        myFile.write('}\n\n')
-
-    myFile.write(
-        '\\newcommand{\\entry}[5]{\\textbf{\\color{' + boldColor + '}{#1}}\\markboth{#1}{#1}\\ [{\\color{' + boldColor + '}#2}]\\ \\textit{{#3}}\\ {\\color{' + boldColor + '}{#4}}\\\n')
-    myFile.write('\\ifthenelse{\\isempty{#5}}\n')
-    myFile.write('  {#5}  % if no title option given\n')
-    myFile.write('{- {#5} }}\n\n')
-
-    myFile.write(
-        '\\newcommand{\\entrySmall}[3]{\\textbf{\\color{' + boldColor + '}{#1}}\\markboth{#1}{#1}\\ {\\color{white}{#2}}\\\n')
-    myFile.write('\\ifthenelse{\\isempty{#3}}\n')
-    myFile.write('  {#3}  % if no title option given\n')
-    myFile.write('{- {#3} }}\n\n')
-
-    myFile.write('\\newcommand\\invisiblesection[1]{%\n')
-    myFile.write('  \\refstepcounter{section}%\n')
-    myFile.write(
-        '  \\addcontentsline{toc}{section}{\\protect\\numberline{\\thesection}#1}\n')
-    myFile.write('  \sectionmark{#1}}\n\n')
-
-    myFile.write('%-----------------------------------------------------\n\n')
-
-    myFile.write('\\begin{document}\n')
-    myFile.write('\\title{' + conlang + '}\n')
-    myFile.write('\\author{' + author + '}\n')
-    myFile.write('\\date{' + timeNow + '}\n')
-    myFile.write('\\begin{titlepage}\n')
-    myFile.write('\\begin{center}\n')
-    myFile.write('  \\vspace{10mm}\n')
-    myFile.write('  \\vspace{40mm}\n')
-    myFile.write('  \\vspace{10mm}\n')
-    myFile.write(
-        '  \\fontsize{10mm}{7mm}\\selectfont \\textup{' + conlang + '}\\\\\n')
-    myFile.write('\\end{center}\n')
-
-    myFile.write('\\vspace{25mm}\n')
-    myFile.write('\\centering{\n')
-    myFile.write('\\textnormal{\\large{\\bf Author:\\\\}}\n')
-    myFile.write('{\\large ' + author + '\\\\ }\n')
-    myFile.write('\\vspace{8mm}\n')
-    myFile.write('\\textnormal{\\large{\\bf Last Modified:\\\\}}\n')
-    myFile.write(
-        '{\\large ' + timeNow + '\\\\}\n')
-    myFile.write('\\hfill\n')
-    myFile.write('}\n')
-    myFile.write('\\end{titlepage}\n')
-
-    myFile.write('\\tableofcontents\n')
-    myFile.write('\\thispagestyle{empty}\n\n')
-    myFile.write('\\clearpage\n')
-
-    myFile.write('%-----------------------------------------------------\n\n')
+    myFile.write(TITLE)
 
     myFile.write('\\invisiblesection{Lexicon}\n')
-    myFile.write(
-        '\\pagestyle{fancy} % Use the custom headers and footers throughout the document\n')
+    myFile.write('\\pagestyle{fancy} % Use the custom headers and footers\n')
     myFile.write('\\parindent=0em\n')
     myFile.write('\\leftskip 0.1in\n')
     myFile.write('\\parindent -0.1in\n\n')
 
-    myFile.write(document)
+    myFile.write(DOCUMENT)
 
     myFile.write('\\end{multicols}\n\\clearpage\n\\end{document}')
 
 os.system(f"xelatex {outputFilename}")
-#os.system(f"xelatex {outputFilename}")
+os.system(f"xelatex {outputFilename}")
 print(f"Made {outputFilename}")
