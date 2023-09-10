@@ -3,12 +3,15 @@ import operator
 import os
 from datetime import datetime as dt
 
+from pyuca.collator import Collator
+collator = Collator("pyuca/allkeys.txt")
+
 language = "Conlang Name"
 author = "John Smith"
 inputFilename = 'lexicon.csv'
 
 # Extra letters - digraphs in the language that will form a category of words
-extraLetters = ["p'", "t'", "k'", "ʎ", "ʔ", "ʙ", "ʦ", "ʣ"]
+extraLetters = ["ch","p'", "t'", "k'", "ʎ", "ʔ", "ʙ", "ʦ", "ʣ"]
 
 darkTheme = input("Use dark theme? (y/n) ")
 hasHeader = input("Does the csv file have a header? (y/n) ")
@@ -40,13 +43,14 @@ PREAMBLE = """
 \\usepackage{xifthen} % provides \isempty test
 
 """
-
+# eeee
 if darkTheme.casefold() == 'y':
-    boldColor = 'white'
     PREAMBLE += """
 \\usepackage{xcolor}
-\\pagecolor[rgb]{0.18,0.18,0.23} %black
+\\pagecolor[rgb]{0.137,0.152,0.18} %black
 \\color[rgb]{0.84,0.88,0.94} %grey
+
+\\definecolor{bold_color}{rgb}{0.831,0.823,0.823}
 
 \\usepackage{sectsty}
 
@@ -66,6 +70,8 @@ else:
 
 \\color[rgb]{0.18,0.18,0.18} %grey
 
+\\definecolor{bold_color}{rgb}{0,0,0}
+
 \\usepackage{hyperref}
 \\hypersetup{
   colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black
@@ -74,12 +80,12 @@ else:
 """
 
 PREAMBLE += """
-\\newcommand{\\entry}[5]{\\textbf{\\color{""" + boldColor + """}{#1}}\\markboth{#1}{#1}\\ [{\\color{""" + boldColor + """}#2}]\\ \\textit{{#3}}\\ {\\color{""" + boldColor + """}{#4}}\\
+\\newcommand{\\entry}[5]{\\textbf{\\color{bold_color}{#1}}\\markboth{#1}{#1}\\ [{\\color{bold_color}#2}]\\ \\textit{{#3}}\\ {\\color{bold_color}{#4}}\\
 \\ifthenelse{\\isempty{#5}}
   {#5}  % if no title option given
 {- {#5} }}
 
-\\newcommand{\\entrySmall}[3]{\\textbf{\\color{""" + boldColor + """}{#1}}\\markboth{#1}{#1}\\ {\\color{white}{#2}}\\
+\\newcommand{\\entrySmall}[3]{\\textbf{\\color{bold_color}{#1}}\\markboth{#1}{#1}\\ {\\color{white}{#2}}\\
 \\ifthenelse{\\isempty{#3}}
   {#3}  % if no title option given
 {- {#3} }}
@@ -107,10 +113,10 @@ TITLE = """
 \\vspace{25mm}
 \\centering{
 \\textnormal{\\large{\\bf Author:\\\\}}
-{\\large ' + author + '\\\\ }
+{\\large """ + author + """\\\\ }
 \\vspace{8mm}
 \\textnormal{\\large{\\bf Last Modified:\\\\}}
-{\\large ' + timeNow + '\\\\}
+{\\large """ + timeNow + """\\\\}
 \\hfill
 }
 \\end{titlepage}
@@ -133,7 +139,9 @@ with open(inputFilename, 'r', encoding="utf-8") as f:
     if hasHeader == "y":
         next(reader, None)
     your_list = list(reader)
-    your_list = sorted(your_list, key=operator.itemgetter(0))
+
+    your_list = sorted(your_list, key=collator.sort_key)
+    #your_list = sorted(your_list, key=operator.itemgetter(0))
     for row in your_list:
         num = 0
         for i in row:
@@ -147,23 +155,23 @@ with open(inputFilename, 'r', encoding="utf-8") as f:
                     if s_old_char != s_cur_char:
                         if s_cur_char in extraLetters:
                             if your_list[0] == row:
-                                index_letter = "\\section*{"+s_cur_char.upper()
-                                + "}%--------- SECTION " + s_cur_char.upper()
+                                index_letter = "\\section*{"+s_cur_char.upper()\
+                                + "}%--------- SECTION " + s_cur_char.upper()\
                                 + "\n"+"\\begin{multicols}{2}"+"\n\n"
                                 startOfList = False
                             else:
-                                index_letter = "\\end{multicols}"+"\n"+"%\\newpage"+"\n"+"\\section*{"+s_cur_char.upper()
-                                + "}%--------- SECTION " + s_cur_char.upper()
+                                index_letter = "\\end{multicols}"+"\n"+"%\\newpage"+"\n"+"\\section*{"+s_cur_char.upper()\
+                                + "}%--------- SECTION " + s_cur_char.upper()\
                                 + "\n"+"\\begin{multicols}{2}"+"\n\n"
                             s_old_char = s_cur_char
                         elif f_old_char != f_cur_char:
                             if your_list[0] == row:
-                                index_letter = "\\section*{"+f_cur_char.upper()
-                                + "}%--------- SECTION " + f_cur_char.upper()
+                                index_letter = "\\section*{"+f_cur_char.upper()\
+                                + "}%--------- SECTION " + f_cur_char.upper()\
                                 + "\n"+"\\begin{multicols}{2}"+"\n\n"
                             else:
-                                index_letter = "\\end{multicols}"+"\n"+"%\\newpage"+"\n"+"\\section*{"+f_cur_char.upper()
-                                + "}%--------- SECTION " + f_cur_char.upper()
+                                index_letter = "\\end{multicols}"+"\n"+"%\\newpage"+"\n"+"\\section*{"+f_cur_char.upper()\
+                                + "}%--------- SECTION " + f_cur_char.upper()\
                                 + "\n"+"\\begin{multicols}{2}"+"\n\n"
                             f_old_char = f_cur_char
                     row[num] = "\\entry" + "{" + row[num] + "}"
